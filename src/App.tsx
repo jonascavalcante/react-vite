@@ -27,6 +27,15 @@ function App() {
     }
   }
 
+  const handleRemove = (id: string) => {
+    peopleListDispatch({
+      type: 'DEL',
+      payload: {
+        id: id
+      }
+    })
+  }
+
   return (
     <>
 
@@ -39,7 +48,10 @@ function App() {
         Lista de Pessoas
         <ul>
           {peopleList.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              {item.name}
+              <Button onClick={() => handleRemove(item.id)}>deletar</Button>
+            </li>
           ))}
         </ul>
       </div>

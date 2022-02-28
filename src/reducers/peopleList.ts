@@ -31,11 +31,15 @@ const reducer = (state: Person[], action: ActionType) => {
 
     case 'DEL':
       if (action.payload?.id) {
-        state = state.filter((item) => item.id !== action.payload?.id);
+        let newState = [...state];
+        newState = newState.filter((item) => item.id !== action.payload?.id);
+        return newState;
       }
 
     case 'ORDER':
-      state = state.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      let newState = [...state];
+      newState = newState.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      return newState;
 
     default:
       break;
