@@ -27,6 +27,12 @@ function App() {
     }
   }
 
+  const handleOrder = () => {
+    peopleListDispatch({
+      type: 'ORDER'
+    })
+  }
+
   const handleRemove = (id: string) => {
     peopleListDispatch({
       type: 'DEL',
@@ -46,6 +52,9 @@ function App() {
         <hr />
 
         Lista de Pessoas
+        <br />
+        <Button onClick={handleOrder}>Ordenar</Button>
+
         <ul>
           {peopleList.map((item) => (
             <li key={item.id}>
